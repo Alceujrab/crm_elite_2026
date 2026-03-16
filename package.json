@@ -1,0 +1,20 @@
+{
+  "name": "clone-zap",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace @clone-zap/api\" \"npm run dev --workspace @clone-zap/web\"",
+    "dev:web": "npm run dev --workspace @clone-zap/web",
+    "dev:api": "npm run dev --workspace @clone-zap/api",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
